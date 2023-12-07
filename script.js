@@ -1,23 +1,30 @@
-const wrapper = document.querySelector(".wrapper");
-const question = document.querySelector(".question");
-const gif = document.querySelector(".gif");
-const yesBtn = document.querySelector(".yes-btn");
-const noBtn = document.querySelector(".no-btn");
+let buttonPressed = false;
 
-yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Yay, see you on the 18th!";
-  gif.src =
-    "https://media.giphy.com/media/UMon0fuimoAN9ueUNP/giphy.gif";
-});
+function changeContent() {
+  const buttonText = document.getElementById('buttonText');
+  const buttonImage = document.getElementById('buttonImage');
 
-noBtn.addEventListener("mouseover", () => {
-  const noBtnRect = noBtn.getBoundingClientRect();
-  const maxX = window.innerWidth - noBtnRect.width;
-  const maxY = window.innerHeight - noBtnRect.height;
+  if (buttonPressed) {
+    buttonText.textContent = 'Press me!';
+    buttonImage.src = 'image1.jpg';
+  } else {
+    buttonText.textContent = 'Keep pressing...';
+    buttonImage.src = 'image2.jpg';
+  }
 
-  const randomX = Math.floor(Math.random() * maxX);
-  const randomY = Math.floor(Math.random() * maxY);
+  buttonPressed = !buttonPressed;
+}
 
-  noBtn.style.left = randomX + "px";
-  noBtn.style.top = randomY + "px";
-});
+function pressButton() {
+  const button = document.getElementById('interactiveButton');
+  button.style.backgroundColor = '#2980b9';
+  button.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+}
+
+function releaseButton() {
+  const button = document.getElementById('interactiveButton');
+  button.style.backgroundColor = '#3498db';
+  button.style.boxShadow = 'none';
+  buttonPressed = false;
+  changeContent();
+}
