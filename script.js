@@ -5,8 +5,8 @@ function changeContent() {
   const buttonImage = document.getElementById('buttonImage');
 
   if (buttonPressed) {
-    buttonText.textContent = 'Press me!';
-    buttonImage.src = 'image1.jpg';
+    buttonText.textContent = 'Put your finger here please!';
+    buttonImage.src = 'https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fyhjocqcq25t31.jpg';
   } else {
     buttonText.textContent = 'Keep pressing...';
     buttonImage.src = 'image2.jpg';
